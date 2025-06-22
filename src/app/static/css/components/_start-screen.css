@@ -1,0 +1,28 @@
+#start-screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #212529;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-screen-box {
+    background-color: #343a40;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    max-width: 500px;
+}
+
+.language-switcher {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,12 @@
+# Mac OS Trash
+__pycache__
+.DS_Store
+
+# Local Terraform directories
+.terraform/
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json

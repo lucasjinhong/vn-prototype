@@ -1,0 +1,52 @@
+# .github/workflows/release.yml
+
+name: Create Release Artifact
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    name: Build and Create Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'write'
+      id-token: 'write'
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Get the version from the Git tag
+      run: echo "VERSION=${{ github.ref_name }}" >> $GITHUB_ENV
+
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v2
+      id: 'auth'
+      with:
+        create_credentials_file: 'true'
+        workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.GCP_SA_EMAIL }}
+
+    - name: Set up Cloud SDK and Docker
+      uses: 'google-github-actions/setup-gcloud@v1'
+
+    - name: Configure Docker
+      run: gcloud auth configure-docker ${{ vars.GCP_REGION }}-docker.pkg.dev -q
+
+    - name: Build and Push Docker image
+      run: |
+        export IMAGE_TAG="${{ vars.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ vars.GAR_REPO_NAME }}/${{ vars.IMAGE_NAME }}:${{ github.ref_name }}"
+        
+        echo "Building and pushing image: $IMAGE_TAG"
+        docker build -t "$IMAGE_TAG" ./src
+        docker push "$IMAGE_TAG"
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ env.VERSION }}
+        name: Release ${{ env.VERSION }}
+        generate_release_notes: true

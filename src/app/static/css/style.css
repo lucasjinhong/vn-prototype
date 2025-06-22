@@ -1,0 +1,18 @@
+/*
+ * Main Stylesheet
+ * This file imports all the component stylesheets in a logical order.
+ * Do not add individual styles here. Add them to the appropriate component file.
+*/
+
+/* 1. Base styles (variables, body, html) */
+@import url("components/_base.css");
+
+/* 2. Layout styles (main containers) */
+@import url("components/_game-container.css");
+@import url("components/_start-screen.css");
+
+/* 3. Component styles (individual UI elements) */
+@import url("components/_header.css");
+@import url("components/_dialogue.css");
+
+/* Note: Modal styles are provided by the Bootstrap CDN library. */

@@ -1,0 +1,26 @@
+# User Interface text strings for en-US, now with a nested structure.
+
+start_screen:
+  title: "Welcome, Traveler"
+  prompt: "Please enter your name to begin."
+  placeholder: "Your Name"
+  button: "Start Adventure"
+
+options_menu:
+  button: "Options"
+  restart_button: "Restart Game"
+
+game_ui:
+  back_button: "← Back"
+
+modals:
+  cancel_button: "Cancel"
+  confirm_button: "Proceed"
+  
+  restart_confirm:
+    title: "Restart Game?"
+    body: "Are you sure you want to restart? This will end your current game and return you to the main screen."
+
+  text_input:
+    title: "A Response is Required"
+    submit_button: "Submit Answer"

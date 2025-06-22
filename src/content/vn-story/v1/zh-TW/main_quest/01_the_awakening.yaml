@@ -1,0 +1,44 @@
+- id: start
+  character: "旁白"
+  background: "assets/backgrounds/room_dark.jpg"
+  text: "你在一個光線昏暗的房間裡醒來。一扇木門矗立在你面前。你該怎麼辦？"
+  choices:
+    - text: "檢查房間"
+      next_node: examine_room
+    - text: "試著開門"
+      next_node: try_door_locked
+
+- id: examine_room
+  character: "英雄"
+  text: "房間空無一物，只有角落裡有一把生鏽的小鑰匙在閃閃發光。"
+  choices:
+    - text: "撿起鑰匙"
+      next_node: get_key
+    - text: "不理它，直接試著開門"
+      next_node: try_door_locked
+
+- id: get_key
+  character: "旁白"
+  text: "你把那把生鏽的小鑰匙放進口袋。它在你手中感覺冰冷。"
+  action: { set_state: "has_key", value: true }
+  choices:
+    - text: "現在，去開門"
+      next_node: try_door_with_key
+
+- id: try_door_locked
+  character: "旁白"
+  text: "你搖了搖門把，但門被牢牢地鎖住了。"
+  choices:
+    - text: "再次檢查房間"
+      next_node: examine_room
+
+- id: try_door_with_key
+  character: "旁白"
+  text: "你用那把生鏽的鑰匙開鎖。鑰匙轉動時發出清脆的「喀嚓」一聲！門應聲而開，露出了一條長長的走廊。"
+  choices:
+    - text: "走進走廊"
+      next_node: end_of_demo
+
+- id: end_of_demo
+  character: "旁白"
+  text: "你成功逃離了第一個房間。旅程才正要開始。（試玩版結束）"

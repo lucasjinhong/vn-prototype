@@ -1,0 +1,82 @@
+- id: start
+  character: "Narrator"
+  background: "assets/backgrounds/room_dark.jpg"
+  text: "You wake up in a dimly lit room. A single wooden door stands before you. What do you do?"
+  choices:
+    - text: "Examine the room"
+      next_node: examine_room
+    - text: "Try to open the door"
+      next_node: try_door_locked
+
+- id: examine_room
+  character: "Hero"
+  text: "The room is bare, except for a small, rusty key glittering in the corner."
+  choices:
+    - text: "Pick up the key"
+      next_node: get_key
+    - text: "Ignore it and try the door"
+      next_node: try_door_locked
+
+- id: get_key
+  character: "Narrator"
+  text: "You pocket the small, rusty key. It feels cold in your hand."
+  action: { set_state: "has_key", value: true }
+  choices:
+    - text: "Now, try the door"
+      next_node: try_door_with_key
+
+- id: try_door_locked
+  character: "Narrator"
+  text: "You jiggle the handle, but the door is firmly locked."
+  choices:
+    - text: "Examine the room again"
+      next_node: examine_room
+
+- id: try_door_with_key
+  character: "Narrator"
+  illustration: "assets/items/rusty-key-closeup.jpeg"
+  text: "You use the rusty key. It turns with a satisfying *click*! The door swings open, revealing a long hallway."
+  choices:
+    - text: "Step into the hallway"
+      next_node: end_of_demo
+
+- id: end_of_demo
+  character: "Mysterious Voice"
+  text: "You've proven clever... but one test remains. Speak the password to truly escape. It is the color of the sky on a clear day."
+  input_prompt:
+    answer: "blue"
+    on_correct: hex_riddle_gate
+    on_incorrect: try_password_again
+
+- id: try_password_again
+  character: "Mysterious Voice"
+  text: "That is not the word. Think... What is the color of the sky?"
+  choices:
+    - text: "Try again"
+      next_node: end_of_demo
+
+- id: hex_riddle_gate
+  character: "The Mainframe"
+  text: "Convert the decimal number {{question}} to a 4-digit hexadecimal value."
+  input_prompt: 
+    function: "generate_dec_to_hex"
+    on_correct: hex_riddle_success
+    on_incorrect: hex_riddle_failure
+
+- id: hex_riddle_failure
+  character: "The Mainframe"
+  text: "That is incorrect. A system integrity check is advised. Please try again."
+  choices:
+    - text: "Attempt conversion again."
+      next_node: hex_riddle_gate
+
+- id: hex_riddle_success
+  character: "The Mainframe"
+  text: "Conversion successful. Access granted."
+  choices:
+    - text: "Continue."
+      next_node: a_new_beginning
+
+- id: a_new_beginning
+  character: "Narrator"
+  text: "The voice echoes, 'Correct.' The walls themselves seem to fade away, revealing a path forward. Your true adventure begins now! (To be continued...)"

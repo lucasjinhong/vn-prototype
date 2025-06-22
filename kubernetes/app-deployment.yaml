@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vn-prototype-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vn-prototype
+  template:
+    metadata:
+      labels:
+        app: vn-prototype
+    spec:
+      containers:
+        - name: vn-prototype-container
+          image: asia-east1-docker.pkg.dev/gentle-complex-463514-f4/vn-prototype-repo/vn-prototype:v1.0
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"

@@ -1,0 +1,26 @@
+# User Interface text strings for zh-TW, with a nested structure.
+
+start_screen:
+  title: "歡迎，旅人"
+  prompt: "請輸入您的名字以開始。"
+  placeholder: "你的名字"
+  button: "開始冒వ險"
+
+options_menu:
+  button: "選項"
+  restart_button: "重新開始遊戲"
+
+game_ui:
+  back_button: "← 返回"
+
+modals:
+  cancel_button: "取消"
+  confirm_button: "繼續"
+
+  restart_confirm:
+    title: "重新開始遊戲？"
+    body: "您確定要重新開始嗎？您目前的遊戲進度將會結束，並返回主畫面。"
+
+  text_input:
+    title: "需要您的回答"
+    submit_button: "提交答案"
