@@ -4,6 +4,10 @@ This project is a scalable, web-based visual novel engine built with a Python Fl
 
 The entire application is containerized with **Docker**, orchestrated with **Kubernetes (GKE)**, and the cloud infrastructure is managed declaratively with **Terraform** and deployed automatically with **GitHub Actions**.
 
+# Demo Website
+
+http://34.81.249.188
+
 ## Features
 
 *   **Dynamic Storytelling:** Story flow driven by simple YAML files.
@@ -215,6 +219,7 @@ Create the file `.github/workflows/xxx.yml` in your project root with the follow
 
 | Workflow | Status |
 | :--- | :--- |
+| **Infrastructure (Terraform)** | [![Terraform Infrastructure CI/CD](https://github.com/lucasjinhong/vn-prototype/actions/workflows/terraform.yaml/badge.svg)](https://github.com/lucasjinhong/vn-prototype/actions/workflows/terraform.yaml) |
 | **Release Artifact Creation** | [![Create Release Artifact](https://github.com/lucasjinhong/vn-prototype/actions/workflows/release.yaml/badge.svg)](https://github.com/lucasjinhong/vn-prototype/actions/workflows/release.yaml) |
 | **Deployment to GKE** | [![Deploy to GKE](https://github.com/lucasjinhong/vn-prototype/actions/workflows/deploy.yaml/badge.svg)](https://github.com/lucasjinhong/vn-prototype/actions/workflows/deploy.yaml) |
 
