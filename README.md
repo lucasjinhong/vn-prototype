@@ -1,6 +1,6 @@
-# Visual Novel Engine
+# Visual Novel Engine - CI/CD Pipeline
 
-This project is a scalable, web-based visual novel engine built with a Python Flask backend and a modern HTML/CSS/JavaScript frontend. It is designed to be fully localizable and content-driven, allowing authors to write stories, create dynamic questions, and manage assets in simple YAML files without touching the core application code.
+This project is a scalable, web visual novel engine designed to be fully localizable and content-driven, allowing authors to write stories, create dynamic questions, and manage assets in simple YAML files without touching the core application code.
 
 The entire application is containerized with **Docker**, orchestrated with **Kubernetes (GKE)**, and the cloud infrastructure is managed declaratively with **Terraform** and deployed automatically with **GitHub Actions**.
 
