@@ -215,7 +215,6 @@ Create the file `.github/workflows/xxx.yml` in your project root with the follow
 
 | Workflow | Status |
 | :--- | :--- |
-| **Infrastructure (Terraform)** | [![Terraform Infrastructure CI/CD](https://github.com/lucasjinhong/vn-prototype/actions/workflows/terraform.yaml/badge.svg)](https://github.com/lucasjinhong/vn-prototype/actions/workflows/terraform.yaml) |
 | **Release Artifact Creation** | [![Create Release Artifact](https://github.com/lucasjinhong/vn-prototype/actions/workflows/release.yaml/badge.svg)](https://github.com/lucasjinhong/vn-prototype/actions/workflows/release.yaml) |
 | **Deployment to GKE** | [![Deploy to GKE](https://github.com/lucasjinhong/vn-prototype/actions/workflows/deploy.yaml/badge.svg)](https://github.com/lucasjinhong/vn-prototype/actions/workflows/deploy.yaml) |
 
