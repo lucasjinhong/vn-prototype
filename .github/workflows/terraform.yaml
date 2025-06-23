@@ -7,10 +7,10 @@ on:
     branches:
       - stable
     paths:
-      - '**.tf'
+      - 'terraform/**.tf'
   pull_request:
     paths:
-      - '**.tf'
+      - 'terraform/**.tf'
 
 jobs:
   terraform:
@@ -35,15 +35,15 @@ jobs:
       uses: hashicorp/setup-terraform@v3
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform -chdir=terraform init
 
     - name: Terraform Validate
-      run: terraform validate
+      run: terraform -chdir=terraform validate
 
     - name: Terraform Plan
       id: plan
-      run: terraform plan -no-color
+      run: terraform -chdir=terraform plan -no-color
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/stable' && github.event_name == 'push'
-      run: terraform apply -auto-approve
+      run: terraform -chdir=terraform apply -auto-approve
