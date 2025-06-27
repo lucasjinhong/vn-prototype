@@ -1,8 +1,12 @@
-# Visual Novel Engine
+# Visual Novel Engine - CI/CD Pipeline
 
-This project is a scalable, web-based visual novel engine built with a Python Flask backend and a modern HTML/CSS/JavaScript frontend. It is designed to be fully localizable and content-driven, allowing authors to write stories, create dynamic questions, and manage assets in simple YAML files without touching the core application code.
+This project is a scalable, web visual novel engine designed to be fully localizable and content-driven, allowing authors to write stories, create dynamic questions, and manage assets in simple YAML files without touching the core application code.
 
 The entire application is containerized with **Docker**, orchestrated with **Kubernetes (GKE)**, and the cloud infrastructure is managed declaratively with **Terraform** and deployed automatically with **GitHub Actions**.
+
+# Demo Website
+
+http://34.81.249.188
 
 ## Features
 
@@ -215,6 +219,7 @@ Create the file `.github/workflows/xxx.yml` in your project root with the follow
 
 | Workflow | Status |
 | :--- | :--- |
+| **Infrastructure (Terraform)** | [![Terraform Infrastructure CI/CD](https://github.com/lucasjinhong/vn-prototype/actions/workflows/terraform.yaml/badge.svg)](https://github.com/lucasjinhong/vn-prototype/actions/workflows/terraform.yaml) |
 | **Release Artifact Creation** | [![Create Release Artifact](https://github.com/lucasjinhong/vn-prototype/actions/workflows/release.yaml/badge.svg)](https://github.com/lucasjinhong/vn-prototype/actions/workflows/release.yaml) |
 | **Deployment to GKE** | [![Deploy to GKE](https://github.com/lucasjinhong/vn-prototype/actions/workflows/deploy.yaml/badge.svg)](https://github.com/lucasjinhong/vn-prototype/actions/workflows/deploy.yaml) |
 

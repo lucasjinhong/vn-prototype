@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: vn-prototype-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: vn-prototype
@@ -24,3 +24,20 @@ spec:
             limits:
               cpu: "1000m"
               memory: "1Gi"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 5 
+            failureThreshold: 3
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 5
+            failureThreshold: 3 
