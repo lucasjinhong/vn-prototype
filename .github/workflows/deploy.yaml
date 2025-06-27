@@ -92,8 +92,7 @@ jobs:
         sed -i -E "s|^(\s*image: ).*|\1${IMAGE_TAG}|" ./kubernetes/app-deployment.yaml
 
         echo "Applying manifests..."
-        kubectl apply -f ./kubernetes/app-deployment.yaml
-        kubectl apply -f ./kubernetes/service.yaml
+        kubectl apply -f ./kubernetes/
         
         echo "Waiting for deployment rollout to complete..."
         kubectl rollout status deployment/${{ vars.DEPLOYMENT_NAME }} --timeout=5m || echo "⚠️ Rollout timed out."
