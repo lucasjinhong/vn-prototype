@@ -1,3 +1,4 @@
 Flask
 PyYAML
 gunicorn
+python-json-logger
