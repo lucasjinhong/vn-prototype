@@ -4,7 +4,7 @@ start_screen:
   title: "歡迎，旅人"
   prompt: "請輸入您的名字以開始。"
   placeholder: "你的名字"
-  button: "開始冒వ險"
+  button: "開始冒險"
 
 options_menu:
   button: "選項"
